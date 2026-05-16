@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krystal EtiquettePro VN | Nâng tầm hình ảnh - Khẳng định phong thái</title>
+  <meta name="description" content="Website phong cách sang trọng cho Krystal EtiquettePro Vietnam - đào tạo nghi thức, phong thái và hình ảnh chuyên nghiệp theo chuẩn quốc tế kết hợp tinh tế Á Đông." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#e9f3f5;
+      --bg2:#f8fcfb;
+      --paper:rgba(255,255,252,.88);
+      --ink:#123845;
+      --muted:#5d7379;
+      --gold:#b78b45;
+      --gold-soft:#ead6a8;
+      --burgundy:#0f6e86;
+      --rose:#5aa3b2;
+      --deep:#0f4f63;
+      --line:rgba(76,45,30,.12);
+      --shadow:0 24px 70px rgba(15,79,99,.12);
+      --shadow-strong:0 30px 100px rgba(15,79,99,.18);
+      --radius:28px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Be Vietnam Pro',sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(15,110,134,.16), transparent 30rem),
+        radial-gradient(circle at 100% 10%, rgba(15,110,134,.13), transparent 28rem),
+        linear-gradient(180deg, rgb(248 252 251) 0%, rgb(201 224 231) 48%, #fffdf8 100%);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .page{position:relative;isolation:isolate}
+    .noise{position:fixed;inset:0;opacity:.035;pointer-events:none;z-index:-1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .glow{position:fixed;inset:auto auto 0 0;width:420px;height:420px;border-radius:50%;pointer-events:none;mix-blend-mode:multiply;background:radial-gradient(circle,rgba(188,149,85,.18),transparent 68%);transform:translate(-50%,-50%);z-index:-1}
+    .container{width:min(1200px,calc(100% - 40px));margin:auto}
+    .reveal{opacity:0;transform:translateY(34px);transition:900ms cubic-bezier(.2,.8,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+
+    header{position:fixed;top:18px;left:0;right:0;z-index:30}
+    .nav{width:min(1200px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:999px;background:rgba(255,251,246,.72);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);box-shadow:0 14px 40px rgba(15,79,99,.08)}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .brand img{width:54px;height:54px;object-fit:contain;border-radius:50%;box-shadow:0 10px 26px rgba(15,110,134,.16)}
+    .brand-text{line-height:1.1}
+    .brand-text b{display:block;font-size:14px;color:var(--deep);letter-spacing:.03em}
+    .brand-text span{font-size:11px;color:var(--muted)}
+    .links{display:flex;gap:22px;align-items:center;color:#5f5147;font-size:14px}
+    .links a{position:relative}
+    .links a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--burgundy));transition:.3s}
+    .links a:hover:after{width:100%}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:999px;font-weight:700;transition:.3s ease;border:1px solid transparent}
+    .btn.primary{color:#fff;background:linear-gradient(135deg,var(--deep),var(--burgundy) 55%,var(--gold));box-shadow:0 20px 45px rgba(15,110,134,.22)}
+    .btn.primary:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(15,110,134,.28)}
+    .btn.ghost{background:rgba(255,255,255,.66);border-color:var(--line);color:var(--deep)}
+
+    .hero{padding:150px 0 90px;min-height:100vh;display:grid;align-items:center;overflow:hidden;position:relative}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(20px)}
+    .hero:before{width:44rem;height:44rem;right:-10rem;top:4rem;background:radial-gradient(circle,rgba(15,110,134,.18),transparent 60%);animation:float 10s ease-in-out infinite}
+    .hero:after{width:36rem;height:36rem;left:-8rem;bottom:0;background:radial-gradient(circle,rgba(188,149,85,.18),transparent 60%);animation:float 8s ease-in-out infinite reverse}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.58);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--deep)}
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 8px rgba(188,149,85,.16)}
+    h1,.title,.quote-mark{font-family:'Cormorant Garamond',serif}
+    h1{font-size:clamp(50px,7vw,94px);line-height:.92;letter-spacing:-2px;margin:22px 0;color:#0b3440}
+    h1 span{display:block;background:linear-gradient(135deg,var(--burgundy),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:18px;line-height:1.86;color:var(--muted);max-width:700px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px;max-width:680px}
+    .hero-stat{padding:20px;border-radius:22px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .hero-stat strong{display:block;font-size:34px;font-family:'Cormorant Garamond',serif;color:var(--deep)}
+    .hero-stat small{color:var(--muted);line-height:1.5;display:block}
+
+    .hero-visual{position:relative;min-height:720px}
+    .hero-card{position:absolute;inset:30px 20px 30px 60px;border-radius:38px;overflow:hidden;border:1px solid rgba(255,255,255,.8);background:linear-gradient(145deg,#fffdf8,#f0ddbc);box-shadow:var(--shadow-strong);transform:rotateY(-9deg) rotateX(4deg);animation:cardFloat 8s ease-in-out infinite}
+    .hero-card .frame{position:absolute;inset:18px;border:1px solid rgba(188,149,85,.38);border-radius:28px;z-index:2}
+    .hero-card .image{position:absolute;inset:0;background:
+      linear-gradient(180deg,rgba(122,41,66,.06),rgba(15,79,99,.22)),
+      url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23f9ead2'/%3E%3Cstop offset='.48' stop-color='%23fffaf1'/%3E%3Cstop offset='1' stop-color='%237a2942'/%3E%3C/linearGradient%3E%3CradialGradient id='r' cx='50%25' cy='28%25' r='55%25'%3E%3Cstop stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23ead3a5'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='900' height='1200' fill='url(%23bg)'/%3E%3Ccircle cx='450' cy='330' r='210' fill='url(%23r)' opacity='.95'/%3E%3Cpath d='M250 1040c20-250 110-400 200-400s180 150 200 400' fill='%23241813' opacity='.82'/%3E%3Cpath d='M285 1040c35-175 93-290 165-290s130 115 165 290' fill='%23f8f1e8' opacity='.92'/%3E%3Cpath d='M322 252c32-92 222-92 256 0 42 113-8 270-128 270S280 365 322 252z' fill='%23502d22'/%3E%3Ccircle cx='450' cy='360' r='118' fill='%23e8c6a8'/%3E%3Cpath d='M334 328c34-108 210-116 242 6-64-34-144-40-242-6z' fill='%23351e18'/%3E%3Cpath d='M350 565c70 54 130 54 200 0' stroke='%23bc9555' stroke-width='16' fill='none' stroke-linecap='round'/%3E%3Ctext x='450' y='1120' text-anchor='middle' font-family='Georgia,serif' font-size='46' fill='%23fff7e8'%3EMs. Krystal%3C/text%3E%3C/svg%3E') center/cover}
+    .hero-card .shine{position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);animation:shine 5s linear infinite}
+    .badge{position:absolute;padding:18px 20px;border-radius:24px;background:rgba(255,252,248,.8);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.82);box-shadow:var(--shadow)}
+    .badge b{display:block;color:var(--deep);margin-bottom:5px}.badge span{font-size:13px;color:var(--muted)}
+    .badge.one{top:18px;left:0;animation:float 5s ease-in-out infinite}
+    .badge.two{right:0;top:210px;animation:float 6s ease-in-out infinite .8s}
+    .badge.three{left:20px;bottom:56px;animation:float 5.6s ease-in-out infinite 1.2s}
+
+    section{padding:96px 0;position:relative}
+    .section-head{display:flex;justify-content:space-between;gap:26px;align-items:end;margin-bottom:42px}
+    .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:800}
+    .title{font-size:clamp(36px,5vw,58px);line-height:1.02;letter-spacing:-1px;margin-top:12px}
+    .section-head p{max-width:520px;color:var(--muted);line-height:1.85}
+
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{padding:28px;border-radius:var(--radius);background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.32s}
+    .card:before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--burgundy),var(--gold))}
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(15,79,99,.14)}
+    .icon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,rgba(15,110,134,.12),rgba(15,110,134,.16));margin-bottom:18px}
+    .card h3{font-family:'Cormorant Garamond',serif;font-size:30px;margin-bottom:10px}
+    .card p{color:var(--muted);line-height:1.75;font-size:14.5px}
+
+    .about{display:grid;grid-template-columns:.88fr 1.12fr;gap:40px;align-items:center}
+    .about-photo{border-radius:40px;min-height:660px;overflow:hidden;box-shadow:var(--shadow-strong);position:relative;background:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23f9ead2'/%3E%3Cstop offset='.48' stop-color='%23fffaf1'/%3E%3Cstop offset='1' stop-color='%237a2942'/%3E%3C/linearGradient%3E%3CradialGradient id='r' cx='50%25' cy='28%25' r='55%25'%3E%3Cstop stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23ead3a5'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='900' height='1200' fill='url(%23bg)'/%3E%3Ccircle cx='450' cy='330' r='210' fill='url(%23r)' opacity='.95'/%3E%3Cpath d='M250 1040c20-250 110-400 200-400s180 150 200 400' fill='%23241813' opacity='.82'/%3E%3Cpath d='M285 1040c35-175 93-290 165-290s130 115 165 290' fill='%23f8f1e8' opacity='.92'/%3E%3Cpath d='M322 252c32-92 222-92 256 0 42 113-8 270-128 270S280 365 322 252z' fill='%23502d22'/%3E%3Ccircle cx='450' cy='360' r='118' fill='%23e8c6a8'/%3E%3Cpath d='M334 328c34-108 210-116 242 6-64-34-144-40-242-6z' fill='%23351e18'/%3E%3Cpath d='M350 565c70 54 130 54 200 0' stroke='%23bc9555' stroke-width='16' fill='none' stroke-linecap='round'/%3E%3Ctext x='450' y='1120' text-anchor='middle' font-family='Georgia,serif' font-size='46' fill='%23fff7e8'%3EMs. Krystal%3C/text%3E%3C/svg%3E') center/cover}
+    .about-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.0),rgba(15,79,99,.34))}
+    .about-panel{padding:44px;border-radius:36px;background:linear-gradient(145deg,rgba(255,252,248,.9),rgba(248,238,225,.84));border:1px solid var(--line);box-shadow:var(--shadow)}
+    .about-panel .lead{font-size:16px;margin-top:18px}
+    .fact{display:flex;gap:14px;margin-top:16px;color:var(--muted);line-height:1.76}
+    .fact:before{content:'✦';color:var(--gold);font-weight:700}
+
+    .programs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .program{min-height:360px;padding:26px;border-radius:30px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:end;box-shadow:var(--shadow-strong)}
+    .program:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(6,48,62,.72))}
+    .program > *{position:relative;z-index:2}
+    .program:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-120%);transition:.8s}
+    .program:hover:after{transform:translateX(120%)}
+    .program:nth-child(1){background:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%237a2942'/%3E%3Cstop offset='1' stop-color='%23bc9555'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='600' fill='%23f8f1e8'/%3E%3Ccircle cx='680' cy='120' r='210' fill='%23ead3a5' opacity='.55'/%3E%3Crect x='120' y='135' width='660' height='330' rx='34' fill='url(%23g)' opacity='.92'/%3E%3Cpath d='M190 220h520M190 300h360M190 380h460' stroke='%23fff8ea' stroke-width='22' stroke-linecap='round' opacity='.78'/%3E%3Ctext x='450' y='535' text-anchor='middle' font-family='Georgia,serif' font-size='48' fill='%237a2942'%3EEtiquette Training%3C/text%3E%3C/svg%3E') center/cover}
+    .program:nth-child(2){background:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='900' height='600' fill='%23fbf3e8'/%3E%3Cpath d='M0 480C180 330 270 410 420 290s270-95 480 40v270H0z' fill='%237a2942' opacity='.88'/%3E%3Ccircle cx='250' cy='190' r='90' fill='%23bc9555'/%3E%3Ccircle cx='450' cy='145' r='110' fill='%23ead3a5'/%3E%3Ccircle cx='650' cy='205' r='85' fill='%23a85b74'/%3E%3Ctext x='450' y='540' text-anchor='middle' font-family='Georgia,serif' font-size='48' fill='%23fff8ea'%3ECorporate Presence%3C/text%3E%3C/svg%3E') center/cover}
+    .program:nth-child(3){background:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Cdefs%3E%3CradialGradient id='r'%3E%3Cstop stop-color='%23fff8ea'/%3E%3Cstop offset='1' stop-color='%23bc9555'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='900' height='600' fill='%23241813'/%3E%3Ccircle cx='450' cy='265' r='180' fill='url(%23r)' opacity='.9'/%3E%3Cpath d='M280 380c90-110 250-110 340 0' stroke='%237a2942' stroke-width='24' fill='none' stroke-linecap='round'/%3E%3Ctext x='450' y='535' text-anchor='middle' font-family='Georgia,serif' font-size='48' fill='%23fff8ea'%3EPersonal Image%3C/text%3E%3C/svg%3E') center/cover}
+    .program:nth-child(4){background:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='900' height='600' fill='%23fff8ea'/%3E%3Crect x='120' y='100' width='660' height='390' rx='44' fill='%237a2942'/%3E%3Cpath d='M220 370c85-120 150-120 230 0s145 120 230 0' stroke='%23ead3a5' stroke-width='26' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='330' cy='230' r='62' fill='%23bc9555'/%3E%3Ccircle cx='570' cy='230' r='62' fill='%23f8f1e8'/%3E%3Ctext x='450' y='555' text-anchor='middle' font-family='Georgia,serif' font-size='44' fill='%237a2942'%3EGlobal Culture%3C/text%3E%3C/svg%3E') center/cover}
+    .program h3{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.05;margin-bottom:10px}
+    .program p{line-height:1.74;color:rgba(255,255,255,.88);font-size:14px}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .panel{padding:32px;border-radius:28px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .panel h3{font-family:'Cormorant Garamond',serif;font-size:34px;margin-bottom:14px}
+    .panel ul{display:grid;gap:10px;padding-left:18px;color:var(--muted);line-height:1.78}
+
+    .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .step{padding:26px;border-radius:28px;background:#fffef9;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .step:before{content:attr(data-step);display:block;font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--gold);margin-bottom:18px}
+    .step h4{font-size:17px;margin-bottom:8px;color:var(--deep)}
+    .step p{color:var(--muted);font-size:14px;line-height:1.72}
+
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{padding:28px;border-radius:28px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .quote-mark{font-size:56px;line-height:1;color:var(--gold);margin-bottom:10px}
+    .quote p{color:var(--muted);line-height:1.84}
+    .quote b{display:block;color:var(--deep);margin-top:18px}
+    .quote span{display:block;color:#8a7b70;font-size:13px;margin-top:4px}
+
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:220px;gap:18px}
+    .gallery .g{border-radius:28px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+    .gallery .g:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(36,24,19,.24))}
+    .gallery .g img{width:100%;height:100%;object-fit:cover;transition:.6s}
+    .gallery .g:hover img{transform:scale(1.05)}
+    .gallery .tall{grid-row:span 2}
+
+    .cta{padding:64px;border-radius:42px;background:linear-gradient(135deg,#0b4253,#0f6e86 55%,#b78b45);color:#fff;box-shadow:var(--shadow-strong);position:relative;overflow:hidden}
+    .cta:before,.cta:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.10)}
+    .cta:before{width:240px;height:240px;right:-80px;top:-80px}.cta:after{width:180px;height:180px;left:-60px;bottom:-60px}
+    .cta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+    .cta .title{color:#fff}
+    .cta p{color:rgba(255,255,255,.82);line-height:1.82;margin-top:16px}
+    .form{display:grid;gap:12px}
+    .form input,.form select,.form textarea{width:100%;padding:15px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.09);color:#fff;outline:none}
+    .form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.66)}
+    .form option{color:#111}
+    .form button{padding:15px;border:0;border-radius:18px;font-weight:800;color:var(--deep);background:#fff;cursor:pointer}
+
+    footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted)}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .foot .left{display:flex;gap:12px;align-items:center}.foot .left img{width:48px;height:48px;border-radius:50%}
+    .social{display:flex;gap:10px}.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fffdf8;border:1px solid var(--line)}
+
+
+
+    .full-service{display:grid;gap:18px}.service-detail{border-radius:30px;background:rgba(255,255,252,.9);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}.service-detail summary{cursor:pointer;list-style:none;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,rgba(15,110,134,.96),rgba(15,79,99,.94));color:#fff}.service-detail summary::-webkit-details-marker{display:none}.service-detail summary h3{font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.05;margin:0}.service-detail summary span{font-size:13px;color:rgba(255,255,255,.78);font-weight:700}.service-detail summary:after{content:'+';font-size:34px;color:var(--gold-soft);transition:.25s}.service-detail[open] summary:after{transform:rotate(45deg)}.service-content{padding:30px;display:grid;gap:22px}.service-content .intro{font-size:16px;line-height:1.82;color:var(--muted)}.service-block{padding:22px;border-radius:22px;background:linear-gradient(145deg,rgba(233,243,245,.72),rgba(255,253,247,.86));border:1px solid rgba(15,110,134,.12)}.service-block h4{font-size:18px;color:var(--deep);margin-bottom:12px}.service-block ul{display:grid;gap:10px}.service-block li{list-style:none;color:var(--muted);line-height:1.68;display:flex;gap:10px}.service-block li:before{content:'✦';color:var(--gold);font-weight:900;flex:0 0 auto}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.result-pill{padding:14px 16px;border-radius:18px;background:#fff;border:1px solid rgba(15,110,134,.13);color:var(--deep);font-weight:700;line-height:1.45}
+
+    .marquee{overflow:hidden;border-block:1px solid var(--line);background:rgba(255,255,255,.38);padding:18px 0;margin-top:-20px}
+    .marquee-track{display:flex;gap:36px;white-space:nowrap;animation:marquee 24s linear infinite;color:var(--deep);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+    .marquee-track span{display:inline-flex;align-items:center;gap:36px}.marquee-track span:after{content:'✦';color:var(--gold)}
+    .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .course{border-radius:34px;background:linear-gradient(145deg,rgba(255,252,247,.92),rgba(252,241,226,.88));border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;position:relative;transition:.35s}
+    .course:hover{transform:translateY(-8px);box-shadow:0 32px 90px rgba(15,79,99,.16)}
+    .course-top{padding:28px 30px;background:linear-gradient(135deg,rgba(15,110,134,.96),rgba(15,79,99,.94));color:#fff;position:relative;overflow:hidden}
+    .course-top:after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;right:-80px;top:-90px;background:rgba(255,255,255,.12)}
+    .course-top .tag{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:800;margin-bottom:16px}
+    .course-top h3{font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1.02;position:relative;z-index:1}
+    .course-body{padding:28px 30px;display:grid;gap:18px}
+    .course-body p{color:var(--muted);line-height:1.8}.mini-title{font-weight:800;color:var(--deep);margin-bottom:8px}
+    .checklist{display:grid;gap:9px}.checklist li{list-style:none;color:var(--muted);line-height:1.65;display:flex;gap:10px}.checklist li:before{content:'✓';color:var(--gold);font-weight:900;flex:0 0 auto}
+    .lux-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.lux-item{padding:28px;border-radius:30px;background:rgba(255,255,255,.55);border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}.lux-item:before{content:'';position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--burgundy),var(--gold))}.lux-item b{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--deep);margin-bottom:8px}.lux-item p{color:var(--muted);line-height:1.75}
+    .floating-cta{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;gap:10px}.floating-cta a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--burgundy),var(--gold));box-shadow:0 18px 45px rgba(15,110,134,.24);font-weight:900}.floating-cta a:hover{transform:translateY(-3px)}
+
+    body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-2;background:
+      radial-gradient(circle at 18% 16%,rgba(255,255,255,.72),transparent 18rem),
+      radial-gradient(circle at 82% 20%,rgba(183,139,69,.18),transparent 24rem),
+      linear-gradient(135deg,rgba(255,255,255,.25),rgba(201,224,231,.22));}
+    body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:
+      linear-gradient(30deg, rgba(15,110,134,.12) 12%, transparent 12.5%, transparent 87%, rgba(15,110,134,.12) 87.5%, rgba(15,110,134,.12)),
+      linear-gradient(150deg, rgba(15,110,134,.12) 12%, transparent 12.5%, transparent 87%, rgba(15,110,134,.12) 87.5%, rgba(15,110,134,.12));background-size:72px 126px;}
+    .royal-divider{width:min(680px,80%);height:34px;margin:0 auto 46px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 80'%3E%3Cpath d='M20 40h250c55 0 55-30 90-30 25 0 30 18 40 30 10-12 15-30 40-30 35 0 35 30 90 30h250' fill='none' stroke='%23b78b45' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='400' cy='40' r='10' fill='%230f6e86'/%3E%3Ccircle cx='400' cy='40' r='19' fill='none' stroke='%23b78b45' stroke-width='3'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.9}
+    .nav{box-shadow:0 18px 55px rgba(15,79,99,.13), inset 0 1px 0 rgba(255,255,255,.9)}
+    .brand img{background:#e9f3f5;padding:4px;border:1px solid rgba(15,110,134,.14)}
+    h1{filter:drop-shadow(0 12px 25px rgba(15,79,99,.08))}.lead{color:#4f6e77}
+    .hero-card,.about-photo,.program,.course,.service-detail,.quote,.panel,.card{transform-style:preserve-3d}.hero-card:hover,.about-photo:hover,.program:hover,.course:hover,.service-detail:hover,.quote:hover,.panel:hover,.card:hover{transform:translateY(-8px) rotateX(1.2deg);}
+    .hero-card:after,.about-photo:before,.program:after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.18) 45%,transparent 70%);transform:translateX(-130%);animation:royalShine 7s ease-in-out infinite;pointer-events:none}
+    section:before{content:'';position:absolute;left:50%;top:18px;width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:translateX(-50%);opacity:.65}
+    .title{background:linear-gradient(135deg,#0b4253 0%,#0f6e86 52%,#b78b45 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.cta .title,.program .title{background:none;color:#fff}
+    .card,.panel,.quote,.step,.lux-item,.hero-stat{backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(15,79,99,.11), inset 0 1px 0 rgba(255,255,255,.8)}
+    .course-top,.service-detail summary{background:linear-gradient(135deg,#083746 0%,#0f6e86 58%,#b78b45 130%)!important}.cta{background:linear-gradient(135deg,#062f3d 0%,#0f6e86 56%,#b78b45 130%)!important}
+    .btn.primary{background:linear-gradient(135deg,#083746,#0f6e86 58%,#b78b45)!important}.btn.primary:before{content:'✦';color:var(--gold-soft)}
+    .program:before{background:linear-gradient(180deg,rgba(6,48,62,.05),rgba(6,48,62,.72))!important}
+    .program h3,.course-top h3,.service-detail summary h3{text-shadow:0 10px 26px rgba(0,0,0,.16)}
+    .floating-cta a{background:linear-gradient(135deg,#083746,#0f6e86 55%,#b78b45)!important;animation:float 4s ease-in-out infinite}.floating-cta a:nth-child(2){animation-delay:.5s}.floating-cta a:nth-child(3){animation-delay:1s}
+    @keyframes royalShine{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}
+
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    @keyframes cardFloat{0%,100%{transform:rotateY(-9deg) rotateX(4deg) translateY(0)}50%{transform:rotateY(-6deg) rotateX(3deg) translateY(-12px)}}
+    @keyframes shine{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+
+    @media (max-width: 1080px){
+      .hero-grid,.about,.cta-grid,.split{grid-template-columns:1fr}
+      .programs{grid-template-columns:repeat(2,1fr)}
+      .course-grid,.lux-strip{grid-template-columns:1fr}
+      .grid-4,.quotes,.timeline{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:1fr 1fr}
+      .hero-visual{min-height:560px}
+    }
+    @media (max-width: 760px){
+      .container,.nav{width:min(100% - 24px,1200px)}
+      .links{display:none}
+      .hero{padding-top:120px}
+      .hero-grid{gap:24px}
+      .hero-visual{display:none}
+      .hero-stats,.grid-4,.programs,.quotes,.timeline,.gallery,.course-grid,.lux-strip,.result-grid{grid-template-columns:1fr}
+      .section-head{display:block}.section-head p{margin-top:16px}
+      h1{font-size:54px}.title{font-size:40px}
+      .cta{padding:36px 20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="glow" id="glow"></div>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <a href="#top" class="brand">
+          <img src="assets-real/unnamed.png" alt="Krystal EtiquettePro logo">
+          <div class="brand-text"><b>KRYSTAL ETIQUETTEPRO VN</b><span>Luxury etiquette • Professional image</span></div>
+        </a>
+        <div class="links">
+          <a href="#services">Dịch vụ</a>
+          <a href="#about">Giảng viên</a>
+          <a href="#courses">Khoá học</a>
+          <a href="#journey">Lộ trình</a>
+          <a href="#reviews">Cảm nhận</a>
+        </div>
+        <a class="btn primary" href="#contact">Đăng ký tư vấn</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow reveal"><span class="dot"></span> Chuẩn quốc tế • Tinh tế Á Đông • Phong thái chuyên nghiệp</div>
+            <h1 class="reveal">Nâng tầm hình ảnh <span>Khẳng định phong thái</span></h1>
+            <p class="lead reveal">Krystal EtiquettePro VietNam chuyên đào tạo nghi thức, phong thái và xây dựng hình ảnh theo chuẩn quốc tế kết hợp tinh tế Á Đông. Các khóa học được thiết kế dành cho nhiều đối tượng, từ thanh thiếu niên đến người trưởng thành (15 – 65 tuổi).</p>
+            <div class="hero-actions reveal">
+              <a class="btn primary" href="#courses">Khám phá chương trình</a>
+              <a class="btn ghost" href="#about">Gặp Ms. Krystal</a>
+            </div>
+            <div class="hero-stats reveal">
+              <div class="hero-stat"><strong>15+</strong><small>năm hoạt động trong ngành hàng không và đào tạo dịch vụ cao cấp</small></div>
+              <div class="hero-stat"><strong>4</strong><small>nhóm giải pháp: khoá học, doanh nghiệp, cố vấn, hợp tác</small></div>
+              <div class="hero-stat"><strong>15–65</strong><small>độ tuổi phù hợp cho nhiều nhu cầu phát triển hình ảnh</small></div>
+            </div>
+          </div>
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <div class="image"></div>
+              <div class="frame"></div>
+              <div class="shine"></div>
+            </div>
+            <div class="badge one"><b>Nghi thức chuyên nghiệp</b><span>Ứng xử tinh tế, giao tiếp chuẩn mực</span></div>
+            <div class="badge two"><b>Hình ảnh cá nhân</b><span>Executive presence & personal branding</span></div>
+            <div class="badge three"><b>Dịch vụ cao cấp</b><span>Tác phong chỉn chu, chuẩn quốc tế</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee reveal"><div class="marquee-track"><span>7 giây đầu tiên</span><span>50% thực hành</span><span>Chuẩn quốc tế</span><span>Tinh tế Á Đông</span><span>Cá nhân hoá 100%</span><span>Before & After</span><span>7 giây đầu tiên</span><span>50% thực hành</span><span>Chuẩn quốc tế</span><span>Tinh tế Á Đông</span><span>Cá nhân hoá 100%</span><span>Before & After</span></div></div>
+
+      <section id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Ngọc Diệp có thể giúp gì bạn?</div>
+              <h2 class="title">Giải pháp toàn diện cho hình ảnh & nghi thức chuyên nghiệp</h2>
+            </div>
+            <p>Website mới được làm theo tinh thần sang trọng, mềm mại, nữ tính nhưng vẫn có chiều sâu chuyên nghiệp — phù hợp với nội dung thương hiệu và màu logo hiện có.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="grid-4">
+            <article class="card reveal"><div class="icon">🎓</div><h3>Khoá học</h3><p>Dựa trên nền tảng của bộ môn Nghi thức, khóa học giúp bạn trau dồi kỹ năng giao tiếp, ứng xử và tác phong chuyên nghiệp, từ đó tự tin hội nhập và trở thành công dân toàn cầu.</p></article>
+            <article class="card reveal"><div class="icon">🏢</div><h3>Đào tạo doanh nghiệp</h3><p>Trau dồi nghệ thuật giao tiếp và xây dựng hình ảnh chuyên nghiệp, góp phần tạo nên môi trường làm việc tích cực, tôn trọng và kết nối bền vững giữa các thành viên.</p></article>
+            <article class="card reveal"><div class="icon">💎</div><h3>Cố vấn</h3><p>Phù hợp cho cá nhân và doanh nghiệp muốn hiểu sâu về nghi thức giao tiếp, nâng cao phong thái, tác phong, xây dựng hình ảnh chuyên nghiệp và tận dụng cơ hội trong mọi hoàn cảnh.</p></article>
+            <article class="card reveal"><div class="icon">🤝</div><h3>Hợp tác</h3><p>Đồng hành với vai trò diễn giả và giảng viên truyền cảm hứng về nghi thức ứng xử tinh tế, giao tiếp lịch sự và sự thấu hiểu văn hoá toàn cầu.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container about">
+          <div class="about-photo reveal"></div>
+          <div class="about-panel reveal">
+            <div class="kicker">Ngọc Diệp - Ms. Krystal</div>
+            <h2 class="title">Giảng viên Nghi thức & Phong thái chuyên nghiệp</h2>
+            <p class="lead">Giảng viên học viện hàng không VietjetAir. Nhà sáng lập Krystal EtiquettePro VietNam. Với nền tảng từ ngành hàng không và đào tạo dịch vụ cao cấp, Ms. Krystal mang đến phương pháp huấn luyện chỉn chu, thực tế và truyền cảm hứng.</p>
+            <div class="fact">Kinh nghiệm 15 năm hoạt động trong ngành Hàng không và Đào tạo dịch vụ cao cấp.</div>
+            <div class="fact">Trực tiếp thiết kế, giảng dạy hàng trăm chương trình về nghi thức, kỹ năng dịch vụ, trang điểm, tạo kiểu tóc và xây dựng phong thái cho hàng nghìn học viên.</div>
+            <div class="fact">Thế mạnh là khả năng cá nhân hoá bài giảng: quan sát, chỉnh sửa và nâng cấp hình ảnh từng học viên để họ toát lên sự tự tin, chỉn chu và cuốn hút.</div>
+            <div class="fact">Niềm tin đào tạo: “Hình ảnh chuyên nghiệp không chỉ để tạo ấn tượng, mà còn là tấm hộ chiếu đưa bạn đến gần hơn với những cơ hội lớn.”</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Chương trình nổi bật</div>
+              <h2 class="title">Thiết kế nội dung đầy đủ hơn, rõ giá trị hơn</h2>
+            </div>
+            <p>Tôi đã gom tinh thần và các cụm nội dung chính từ site gốc, rồi tổ chức lại thành các khối rõ ràng hơn để khách vào là hiểu ngay học gì, hợp ai, giá trị nhận được là gì.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="programs">
+            <article class="program reveal"><h3>Nghi thức giao tiếp & tác phong chuyên nghiệp</h3><p>Dành cho nhân sự cần nâng chuẩn giao tiếp, sự chỉn chu và khả năng xử lý tình huống khéo léo với khách hàng.</p></article>
+            <article class="program reveal"><h3>Xây dựng hình ảnh chuyên nghiệp</h3><p>Giúp cá nhân tự tin hơn khi gặp khách hàng, tham gia sự kiện, networking và xuất hiện trong môi trường quốc tế.</p></article>
+            <article class="program reveal"><h3>Hình ảnh nhà lãnh đạo</h3><p>Dành cho quản lý / lãnh đạo muốn nâng tầm hình ảnh lãnh đạo, giao tiếp, nghi thức và sức ảnh hưởng đội ngũ.</p></article>
+            <article class="program reveal"><h3>Đào tạo doanh nghiệp & hợp tác diễn giả</h3><p>Workshop, in-house training, đồng hành nâng chuẩn văn hoá dịch vụ và hình ảnh thương hiệu doanh nghiệp.</p></article>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="full-services">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Dịch vụ / khóa học đầy đủ</div>
+              <h2 class="title">Toàn bộ content dịch vụ được gom lại rõ ràng, sang và dễ đọc</h2>
+            </div>
+            <p>Phần này giữ đầy đủ nội dung sếp gửi, nhưng đưa vào dạng mở rộng để khách đọc sâu khi cần. Nhìn chuyên nghiệp hơn, không làm trang bị rối.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="full-service">
+            <details class="service-detail reveal" open>
+              <summary><div><span>Khóa học 1 ngày</span><h3>🌟 Diện mạo hoàn hảo, tự tin tỏa sáng</h3></div></summary>
+              <div class="service-content">
+                <p class="intro">💡 Chỉ trong 1 ngày, bạn sẽ được nâng cấp toàn diện từ diện mạo đến phong thái, để xuất hiện ở bất kỳ đâu cũng gây thiện cảm và để lại ấn tượng chuyên nghiệp.</p>
+                <div class="service-block"><h4>📅 Buổi sáng – Kiến thức nền & phong thái chuyên nghiệp</h4><ul><li>Chân dung hình ảnh chuyên nghiệp – Nhận diện và định vị bản thân trong mắt người khác.</li><li>Sức mạnh của 7 giây đầu tiên – Chinh phục thiện cảm và niềm tin ngay khi xuất hiện.</li><li>Ngôn ngữ không lời quyền lực – Khi hình ảnh “lên tiếng” trước cả lời chào.</li><li>Vệ sinh & chăm sóc cơ thể toàn diện – Từ hơi thở, bàn tay, bàn chân.</li><li>Mùi hương tạo thương hiệu cá nhân – Bí quyết chọn và sử dụng nước hoa tinh tế.</li></ul></div>
+                <div class="service-block"><h4>Buổi chiều – Nâng cấp diện mạo & thực hành cá nhân hóa</h4><ul><li>💆 Kỹ năng chăm sóc da & trang điểm – Lựa chọn phong cách phù hợp công việc & sự kiện, giữ vẻ đẹp tự nhiên, tươi tắn và bền cả ngày.</li><li>💇 Tạo kiểu tóc tinh tế – Gọn gàng, sang trọng nhưng nhanh chóng, phù hợp nhiều môi trường và dịp xuất hiện.</li><li>👩‍🏫 Coaching 1:1 – Giảng viên quan sát, phân tích và chỉnh sửa trực tiếp hình ảnh cá nhân cho từng học viên.</li><li>📝 Nhận phản hồi cá nhân hóa – Giúp bạn nhận rõ điểm mạnh, điểm cần cải thiện để bước ra với phiên bản chuyên nghiệp – tự tin – cuốn hút nhất.</li></ul></div>
+                <div class="service-block"><h4>🎯 Ai nên tham gia?</h4><ul><li>👔 Doanh nhân & nhà quản lý – Nâng tầm hình ảnh quyền uy, tạo uy tín ngay từ lần gặp đầu tiên.</li><li>🏢 Nhân viên văn phòng, kinh doanh, hành chính – nhân sự – Hoàn thiện tác phong để ghi điểm trong công việc.</li><li>🛎 Ngành dịch vụ cao cấp – Tiếp viên hàng không, lễ tân, khách sạn – nhà hàng…</li><li>🎓 Sinh viên & người mới đi làm – Tự tin khi phỏng vấn và xây dựng phong thái chuyên nghiệp ngay từ đầu.</li><li>🌟 Bất kỳ ai muốn nâng cấp phong thái, giao tiếp tinh tế và hình ảnh cá nhân.</li></ul></div>
+                <div class="service-block"><h4>✨ Điểm đặc biệt chỉ có tại khóa học</h4><ul><li>✅ Cá nhân hóa 100% – Giảng viên chỉnh sửa trực tiếp từng học viên.</li><li>✅ 50% lý thuyết – 50% thực hành ngay tại lớp, nhớ lâu và áp dụng được liền.</li><li>✅ Chuẩn quốc tế & tinh tế Á Đông – Linh hoạt cho môi trường Việt Nam.</li><li>✅ Trải nghiệm Before & After – Chụp ảnh trước và sau để thấy rõ sự thay đổi.</li><li>✅ Ứng dụng ngay vào công việc và đời sống.</li><li>✅ Không khí học đầy năng lượng – Tương tác, vui vẻ, tiến bộ từng giờ.</li></ul></div>
+                <div class="result-grid"><div class="result-pill">✅ Xuất hiện tự tin, chỉn chu trong mọi hoàn cảnh.</div><div class="result-pill">✅ Nắm bí quyết duy trì phong thái và diện mạo chuẩn mỗi ngày.</div><div class="result-pill">✅ Gây thiện cảm và ấn tượng ngay từ lần gặp đầu tiên.</div></div>
+              </div>
+            </details>
+            <details class="service-detail reveal">
+              <summary><div><span>Khóa học 2 ngày / 4 buổi</span><h3>🌟 Phong thái chuyên nghiệp, diện mạo tự tin</h3></div></summary>
+              <div class="service-content">
+                <p class="intro">Phong thái và diện mạo chính là tấm danh thiếp sống của bạn – quyết định cách người khác nhìn nhận, tin tưởng và ghi nhớ bạn. Chỉ sau 2 ngày, bạn sẽ nắm trọn bí quyết để xuất hiện tự tin, chuyên nghiệp và để lại dấu ấn khó quên.</p>
+                <div class="service-block"><h4>📍 Ngày 1 – Nghệ thuật phong thái & nghi thức giao tiếp chuyên nghiệp</h4><ul><li>🕴 Tác phong thanh lịch: Quy tắc đi, đứng, ngồi, cúi chào… để ghi điểm ở mọi khoảnh khắc.</li><li>✋ Ngôn ngữ đôi tay & giao tiếp chào hỏi: Để từng cử chỉ đều gửi đi thông điệp tích cực.</li><li>💬 Cách giới thiệu bản thân ấn tượng: Tự tin, chỉn chu, dễ được ghi nhớ.</li><li>📏 Khoảng cách giao tiếp lý tưởng: Tạo cảm giác dễ chịu và tôn trọng không gian cá nhân.</li><li>🤝 Nghệ thuật bắt tay: Ấn tượng từ cái chạm đầu tiên.</li><li>💳 Trao danh thiếp chuẩn doanh nhân: Khi tấm card nhỏ tạo ra giá trị lớn và giúp bạn được nhớ lâu.</li><li>Thực hành trực tiếp: Giảng viên chỉnh dáng đi, tư thế và phong thái cho từng học viên ngay tại lớp.</li></ul></div>
+                <div class="service-block"><h4>📍 Ngày 2 – Hoàn thiện hình ảnh với trang điểm & làm tóc</h4><ul><li>💄 Kỹ năng chăm sóc da & trang điểm: Phù hợp công việc & sự kiện – Giữ vẻ đẹp tự nhiên, bền cả ngày.</li><li>💇 Tạo kiểu tóc tinh tế: Gọn gàng, sang trọng nhưng không tốn thời gian.</li><li>👩‍🏫 Coaching 1:1: Giảng viên chỉnh sửa trực tiếp tư thế, phong thái và hình ảnh cá nhân.</li><li>📝 Nhận phản hồi cá nhân: Nắm rõ điểm mạnh, điểm cần cải thiện để rời lớp học với phiên bản chuyên nghiệp và tự tin nhất.</li></ul></div>
+                <div class="service-block"><h4>✨ Điểm đặc biệt</h4><ul><li>✅ Cá nhân hóa 100%.</li><li>✅ 50% lý thuyết – 50% thực hành ngay tại lớp.</li><li>✅ Chuẩn quốc tế & tinh tế Á Đông.</li><li>✅ Before & After, ứng dụng ngay vào công việc và đời sống.</li><li>✅ Không khí học đầy năng lượng – tương tác, vui vẻ, tiến bộ từng giờ.</li></ul></div>
+                <div class="result-grid"><div class="result-pill">🌟 Xuất hiện tự tin, chuyên nghiệp ở mọi môi trường.</div><div class="result-pill">💬 Gây thiện cảm & ấn tượng mạnh ngay từ lần gặp đầu tiên.</div><div class="result-pill">💎 Sở hữu phong thái & diện mạo khiến người khác khó quên.</div></div>
+              </div>
+            </details>
+            <details class="service-detail reveal">
+              <summary><div><span>Khóa học 2 ngày / 4 buổi</span><h3>🌟 Xây dựng hình ảnh chuyên nghiệp</h3></div></summary>
+              <div class="service-content">
+                <p class="intro">Hoàn thiện hình ảnh – nâng tầm sự tự tin chỉ sau 2 ngày. Bạn sẽ không chỉ “ăn mặc đẹp hơn” mà còn hiểu sâu về phong thái, dấu ấn cá nhân và cách duy trì hình ảnh chuyên nghiệp mỗi ngày.</p>
+                <div class="service-block"><h4>📅 Lộ trình 2 ngày – 4 buổi</h4><ul><li>📍 Buổi 1 – Trang phục công sở & nghệ thuật phối đồ: chọn trang phục đẹp, chuẩn, phù hợp văn hóa doanh nghiệp; phối màu & chất liệu; tạo signature look cá nhân.</li><li>📍 Buổi 2 – Phụ kiện & dấu ấn cá nhân: biến đồng hồ, giày, túi, cà vạt, trang sức thành “vũ khí” nâng tầm phong thái; tránh lỗi phụ kiện làm hình ảnh bị lạc điệu.</li><li>📍 Buổi 3 – Nâng cấp diện mạo: chăm sóc da, trang điểm công sở & sự kiện, tạo kiểu tóc phù hợp, gọn gàng, tinh tế, tiết kiệm thời gian.</li><li>📍 Buổi 4 – Coaching 1:1 & hoàn thiện hình ảnh cá nhân: phân tích, chỉnh sửa trực tiếp, phản hồi chi tiết và trải nghiệm Before & After.</li></ul></div>
+                <div class="service-block"><h4>🎯 Ai nên tham gia?</h4><ul><li>👔 Doanh nhân & nhà quản lý cần hình ảnh uy tín, chuyên nghiệp để tạo niềm tin với đối tác.</li><li>🏢 Nhân viên văn phòng, hành chính, nhân sự thường xuyên gặp khách hàng hoặc lãnh đạo.</li><li>🛎 Ngành dịch vụ cao cấp: lễ tân, tiếp viên hàng không, khách sạn – nhà hàng.</li><li>🎯 Người chuẩn bị cho sự kiện quan trọng hoặc phỏng vấn.</li><li>🌟 Bất kỳ ai muốn hoàn thiện phong thái, gu thời trang và diện mạo.</li></ul></div>
+                <div class="result-grid"><div class="result-pill">🌟 Xuất hiện chỉn chu – chuyên nghiệp – cuốn hút.</div><div class="result-pill">💬 Gây ấn tượng mạnh ngay từ lần gặp đầu tiên.</div><div class="result-pill">💎 Sở hữu phong thái & gu ăn mặc tinh tế.</div></div>
+              </div>
+            </details>
+            <details class="service-detail reveal">
+              <summary><div><span>Khóa học 2 ngày</span><h3>🌟 Nâng tầm hình ảnh, gây dấu ấn trong 7 giây</h3></div></summary>
+              <div class="service-content">
+                <p class="intro">Nghiên cứu cho thấy chỉ trong 7 giây đầu tiên, người khác đã hình thành ấn tượng về bạn — và ấn tượng đó có thể theo họ suốt cả mối quan hệ hợp tác. Khóa học giúp biến 7 giây đó thành “đòn ghi điểm” tuyệt đối.</p>
+                <div class="service-block"><h4>Ngày 1 – Bí mật tạo dấu ấn ngay lần gặp đầu</h4><ul><li>Chân dung hình ảnh chuyên nghiệp – nhận diện & định vị bản thân.</li><li>Sức mạnh của 7 giây đầu tiên – chinh phục niềm tin ngay khi xuất hiện.</li><li>Ngôn ngữ không lời quyền lực, vệ sinh & chăm sóc cơ thể, mùi hương cá nhân, nụ cười chuyên nghiệp.</li><li>Trang phục công sở, nghệ thuật phối đồ, phụ kiện & dấu ấn cá nhân.</li></ul></div>
+                <div class="service-block"><h4>Ngày 2 – Thực hành & hoàn thiện hình ảnh</h4><ul><li>Chăm sóc da & trang điểm phù hợp công việc và sự kiện.</li><li>Tạo kiểu tóc tinh tế, gọn gàng, phù hợp phong thái.</li><li>Coaching 1:1 và phản hồi cá nhân hóa để bước ra với phiên bản hoàn thiện nhất.</li></ul></div>
+                <div class="service-block"><h4>✨ Điểm đặc biệt</h4><ul><li>✅ Cá nhân hóa 100%.</li><li>✅ 50% lý thuyết – 50% thực hành.</li><li>✅ Chuẩn quốc tế & tinh tế Á Đông, phù hợp văn hóa Việt.</li><li>✅ Before & After, ứng dụng đa ngành nghề.</li><li>✅ Không khí học đầy năng lượng.</li></ul></div>
+              </div>
+            </details>
+            <details class="service-detail reveal">
+              <summary><div><span>Khóa học 3 ngày</span><h3>🌟 Nâng tầm hình ảnh, khẳng định phong thái chuyên nghiệp</h3></div></summary>
+              <div class="service-content">
+                <p class="intro">Đây là 3 ngày trải nghiệm – thực hành – chỉnh sửa cá nhân, giúp bạn bước ra với một phiên bản tự tin, chuyên nghiệp và cuốn hút hơn.</p>
+                <div class="service-block"><h4>Ngày 1 – Tạo dấu ấn ngay lần gặp đầu</h4><ul><li>Chân dung hình ảnh chuyên nghiệp, sức mạnh của ấn tượng đầu tiên, ngôn ngữ không lời.</li><li>Vệ sinh & chăm sóc cơ thể, mùi hương tạo thương hiệu cá nhân, nụ cười chuyên nghiệp.</li><li>Trang phục công sở, nghệ thuật phối đồ, phụ kiện & dấu ấn cá nhân.</li></ul></div>
+                <div class="service-block"><h4>Ngày 2 – Nghệ thuật phong thái & nghi thức giao tiếp</h4><ul><li>Tác phong thanh lịch: đi, đứng, ngồi, cúi chào.</li><li>Ngôn ngữ đôi tay, chào hỏi, giới thiệu bản thân ấn tượng.</li><li>Khoảng cách giao tiếp lý tưởng, nghệ thuật bắt tay, trao danh thiếp chuẩn doanh nhân.</li></ul></div>
+                <div class="service-block"><h4>Ngày 3 – Thực hành xây dựng phong thái & hoàn thiện hình ảnh</h4><ul><li>Chăm sóc da & trang điểm phù hợp công việc/sự kiện.</li><li>Tạo kiểu tóc phù hợp, gọn gàng, tinh tế.</li><li>Coaching 1:1, chỉnh sửa trực tiếp tư thế, phong thái và hình ảnh cá nhân.</li><li>Nhận phản hồi cá nhân để rời lớp học với phiên bản chuyên nghiệp và tự tin nhất.</li></ul></div>
+                <div class="service-block"><h4>🌟 Điểm đặc biệt chỉ có tại khóa học</h4><ul><li>✅ Cá nhân hóa đến từng chi tiết.</li><li>✅ Kết hợp chuẩn quốc tế & tinh tế Á Đông.</li><li>✅ Học & thực hành ngay lập tức.</li><li>✅ Ứng dụng cho mọi ngành nghề.</li><li>✅ Bộ công cụ hình ảnh cá nhân.</li><li>✅ Trải nghiệm Before & After.</li><li>✅ Không khí học đầy năng lượng, sửa sai ngay và tiến bộ từng giờ.</li></ul></div>
+                <div class="result-grid"><div class="result-pill">💬 Phiên bản chuyên nghiệp hơn.</div><div class="result-pill">💎 Tự tin hơn trong mọi lần xuất hiện.</div><div class="result-pill">📌 Để lại dấu ấn mạnh mẽ hơn với khách hàng, đối tác, đồng nghiệp.</div></div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section id="detailed-courses">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Dữ liệu khóa học từ website gốc</div>
+              <h2 class="title">Các khóa học được trình bày lại sang hơn, dễ bán hơn</h2>
+            </div>
+            <p>Tôi đã lấy thêm content mới trong HTML data: khóa 1 ngày, khóa 2 ngày, lộ trình buổi học, ai nên tham gia, điểm đặc biệt và kết quả sau khóa.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="course-grid">
+            <article class="course reveal">
+              <div class="course-top"><span class="tag">Khóa học 1 ngày</span><h3>Diện mạo hoàn hảo, tự tin tỏa sáng</h3></div>
+              <div class="course-body">
+                <p>Chỉ trong 1 ngày, học viên được nâng cấp toàn diện từ diện mạo đến phong thái để xuất hiện ở bất kỳ đâu cũng gây thiện cảm và để lại ấn tượng chuyên nghiệp.</p>
+                <div><div class="mini-title">Buổi sáng — Kiến thức nền & phong thái</div><ul class="checklist"><li>Chân dung hình ảnh chuyên nghiệp và định vị bản thân.</li><li>Sức mạnh của 7 giây đầu tiên.</li><li>Ngôn ngữ không lời quyền lực: tư thế, ánh mắt, cử chỉ.</li><li>Vệ sinh & chăm sóc cơ thể toàn diện, mùi hương cá nhân.</li></ul></div>
+                <div><div class="mini-title">Buổi chiều — Nâng cấp diện mạo</div><ul class="checklist"><li>Chăm sóc da, trang điểm phù hợp công việc & sự kiện.</li><li>Tạo kiểu tóc tinh tế: gọn gàng, sang trọng, nhanh chóng.</li><li>Coaching 1:1, phân tích và chỉnh sửa trực tiếp hình ảnh cá nhân.</li><li>Before & After để thấy rõ sự thay đổi.</li></ul></div>
+              </div>
+            </article>
+            <article class="course reveal">
+              <div class="course-top"><span class="tag">Khóa học 2 ngày / 4 buổi</span><h3>Phong thái chuyên nghiệp, diện mạo tự tin</h3></div>
+              <div class="course-body">
+                <p>Phong thái và diện mạo là “tấm danh thiếp sống” quyết định cách người khác nhìn nhận, tin tưởng và ghi nhớ bạn. Học viên thực hành, được chỉnh sửa cá nhân và ra về với phiên bản hoàn thiện hơn.</p>
+                <div><div class="mini-title">Ngày 1 — Nghệ thuật phong thái & nghi thức</div><ul class="checklist"><li>Quy tắc đi, đứng, ngồi, cúi chào để ghi điểm ở mọi khoảnh khắc.</li><li>Ngôn ngữ đôi tay, giao tiếp chào hỏi, giới thiệu bản thân ấn tượng.</li><li>Khoảng cách giao tiếp lý tưởng, nghệ thuật bắt tay và trao danh thiếp chuẩn doanh nhân.</li><li>Thực hành trực tiếp, chỉnh dáng đi và tư thế ngay tại lớp.</li></ul></div>
+                <div><div class="mini-title">Ngày 2 — Hình ảnh, trang điểm & làm tóc</div><ul class="checklist"><li>Kỹ năng chăm sóc da và trang điểm tự nhiên, bền cả ngày.</li><li>Tạo kiểu tóc gọn gàng, sang trọng, phù hợp nhiều môi trường.</li><li>Coaching 1:1 và phản hồi cá nhân để biết điểm mạnh, điểm cần cải thiện.</li></ul></div>
+              </div>
+            </article>
+            <article class="course reveal">
+              <div class="course-top"><span class="tag">Khóa học 2 ngày / 4 buổi</span><h3>Xây dựng hình ảnh chuyên nghiệp</h3></div>
+              <div class="course-body">
+                <p>Không chỉ “ăn mặc đẹp hơn”, học viên hiểu sâu về phong thái, dấu ấn cá nhân và bí quyết duy trì hình ảnh chuyên nghiệp mỗi ngày.</p>
+                <ul class="checklist"><li>Trang phục công sở: đẹp, chuẩn, phù hợp văn hóa doanh nghiệp.</li><li>Nghệ thuật phối màu & chất liệu để trang phục hài hòa, tôn dáng.</li><li>Tạo signature look cá nhân: nhất quán, dễ ghi nhớ.</li><li>Phụ kiện: đồng hồ, giày, túi, cà vạt, trang sức — nâng tầm phong thái.</li><li>Chăm sóc da, trang điểm, tạo kiểu tóc và thực hành chỉnh sửa 1:1.</li></ul>
+              </div>
+            </article>
+            <article class="course reveal">
+              <div class="course-top"><span class="tag">Ai nên tham gia?</span><h3>Dành cho người muốn nâng cấp hình ảnh thật sự</h3></div>
+              <div class="course-body">
+                <ul class="checklist"><li>Doanh nhân & nhà quản lý cần hình ảnh quyền uy, uy tín.</li><li>Nhân viên văn phòng, kinh doanh, hành chính – nhân sự.</li><li>Ngành dịch vụ cao cấp: hàng không, lễ tân, khách sạn – nhà hàng.</li><li>Sinh viên & người mới đi làm cần tự tin khi phỏng vấn.</li><li>Bất kỳ ai muốn nâng cấp phong thái, giao tiếp tinh tế và hình ảnh cá nhân.</li></ul>
+                <div><div class="mini-title">Kết quả sau khóa</div><ul class="checklist"><li>Xuất hiện tự tin, chỉn chu trong mọi hoàn cảnh.</li><li>Gây thiện cảm và ấn tượng ngay từ lần gặp đầu tiên.</li><li>Nắm bí quyết duy trì phong thái và diện mạo chuẩn mỗi ngày.</li></ul></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container lux-strip">
+          <div class="lux-item reveal"><b>Cá nhân hoá 100%</b><p>Giảng viên quan sát, phân tích và chỉnh sửa trực tiếp từng học viên thay vì dạy đại trà.</p></div>
+          <div class="lux-item reveal"><b>50% thực hành</b><p>Không học lý thuyết suông. Học viên được làm, được sửa, được phản hồi và ứng dụng ngay.</p></div>
+          <div class="lux-item reveal"><b>Before & After</b><p>Trải nghiệm nhìn thấy sự thay đổi rõ ràng về diện mạo, phong thái và sự tự tin.</p></div>
+        </div>
+      </section>
+      <section>
+        <div class="container split">
+          <div class="panel reveal">
+            <h3>Khách hàng / học viên phù hợp</h3>
+            <ul>
+              <li>Thanh thiếu niên cần nền tảng giao tiếp và phong thái tự tin.</li>
+              <li>Nhân sự lễ tân, dịch vụ, bán hàng, chăm sóc khách hàng.</li>
+              <li>Cá nhân muốn nâng cấp hình ảnh cá nhân & personal branding.</li>
+              <li>Quản lý, lãnh đạo, founder muốn xây dựng executive presence.</li>
+              <li>Doanh nghiệp muốn chuẩn hoá trải nghiệm dịch vụ & văn hoá nội bộ.</li>
+            </ul>
+          </div>
+          <div class="panel reveal">
+            <h3>Giá trị cốt lõi học viên nhận được</h3>
+            <ul>
+              <li>Hiểu nghi thức không chỉ là “quy tắc” mà là sự tôn trọng và kết nối.</li>
+              <li>Biết cách xuất hiện chuyên nghiệp hơn trong môi trường công việc.</li>
+              <li>Giao tiếp tự tin hơn với khách hàng, đối tác, đồng nghiệp quốc tế.</li>
+              <li>Nâng chất lượng hình ảnh cá nhân và văn hoá doanh nghiệp.</li>
+              <li>Ứng dụng được ngay sau khoá học, không lý thuyết suông.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Lộ trình</div>
+              <h2 class="title">Hành trình đào tạo rõ ràng, hợp lý, có chiều sâu</h2>
+            </div>
+            <p>Làm site đẹp thôi chưa đủ. Phải cho khách thấy quy trình chuyên nghiệp. Section này tạo niềm tin mạnh hơn site cũ.</p>
+          </div>
+          <div class="timeline">
+            <div class="step reveal" data-step="01"><h4>Đánh giá nhu cầu</h4><p>Xác định chân dung học viên, mục tiêu, môi trường xuất hiện và kỳ vọng phát triển hình ảnh.</p></div>
+            <div class="step reveal" data-step="02"><h4>Chuẩn hoá nền tảng</h4><p>Học cốt lõi về tư thế, ánh mắt, cử chỉ, chào hỏi, giới thiệu bản thân, lắng nghe và ngôn ngữ cơ thể.</p></div>
+            <div class="step reveal" data-step="03"><h4>Thực hành tình huống</h4><p>Áp dụng trong bối cảnh doanh nghiệp, sự kiện, gặp khách hàng, môi trường đa văn hoá và dịch vụ cao cấp.</p></div>
+            <div class="step reveal" data-step="04"><h4>Hiệu chỉnh cá nhân</h4><p>Phản hồi cá nhân hoá để học viên nhận ra những chi tiết làm nên phong thái khác biệt.</p></div>
+            <div class="step reveal" data-step="05"><h4>Duy trì & phát triển</h4><p>Định hướng cách duy trì phong thái, xây dựng hình ảnh bền vững sau khoá học và sau doanh nghiệp training.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Khoảnh khắc thương hiệu</div>
+              <h2 class="title">Gallery sang hơn, cảm xúc hơn</h2>
+            </div>
+            <p>Toàn bộ ảnh trong section này đang lấy trực tiếp từ thư mục data local của web gốc, nên không còn lỗi hotlink/chết ảnh. Layout được dựng lại cho cảm giác premium hơn: sạch, sáng, sang và đúng tinh thần etiquette.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="gallery">
+            <div class="g tall reveal"><img src="assets-real/unnamed(7).jpg" alt="gallery"></div>
+            <div class="g reveal"><img src="assets-real/unnamed(8).jpg" alt="gallery"></div>
+            <div class="g reveal"><img src="assets-real/unnamed(9).jpg" alt="gallery"></div>
+            <div class="g reveal"><img src="assets-real/unnamed(10).jpg" alt="gallery"></div>
+            <div class="g reveal"><img src="assets-real/unnamed.jpg" alt="gallery"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Cảm nhận học viên</div>
+              <h2 class="title">Social proof được trình bày tinh tế hơn</h2>
+            </div>
+            <p>Tôi đã lấy các trích đoạn nổi bật từ web gốc và biên tập lại thành bố cục testimonial sang, dễ đọc, tin cậy hơn.</p>
+          </div>
+          <div class="royal-divider reveal"></div>
+          <div class="quotes">
+            <article class="quote reveal"><div class="quote-mark">“</div><p>Trước đây tôi nghĩ nghi thức chỉ dành cho môi trường lễ tân hay ngoại giao. Sau khóa học, tôi mới nhận ra những chi tiết nhỏ như tư thế, ánh mắt hay cách bắt tay lại ảnh hưởng rất lớn đến hình ảnh cá nhân và văn hóa công ty.</p><b>Hồng Duyên</b><span>Học viên doanh nghiệp — Khóa Nghi Thức và Xây Dựng Tác Phong Chuyên Nghiệp</span></article>
+            <article class="quote reveal"><div class="quote-mark">“</div><p>Khóa học giúp tôi thay đổi hoàn toàn cách mình xuất hiện và giao tiếp. Giờ đây tôi tự tin hơn khi gặp khách hàng hay tham gia sự kiện, vì hiểu rõ thế nào là phong thái chuyên nghiệp và tinh tế.</p><b>Bảo Vy</b><span>Học viên cá nhân — Khóa Xây Dựng Hình Ảnh Chuyên Nghiệp</span></article>
+            <article class="quote reveal"><div class="quote-mark">“</div><p>Before joining Krystal EtiquettePro, I thought etiquette was simply about following rules. But through Ms. Diệp’s class, I learned that etiquette is really about respect and connection. This course truly changed the way I present myself both professionally and personally.</p><b>Sarah Thompson</b><span>UK — Ho Chi Minh City</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="cta reveal">
+            <div class="cta-grid">
+              <div>
+                <div class="kicker" style="color:var(--gold-soft)">Liên hệ tư vấn</div>
+                <h2 class="title">Sẵn sàng nâng chuẩn hình ảnh của bạn?</h2>
+                <p>Dành cho cá nhân, lãnh đạo hoặc doanh nghiệp muốn xây dựng hình ảnh chuyên nghiệp, giao tiếp tinh tế và phong thái chỉn chu. Thông tin liên hệ từ website gốc: kepvietnam2025@gmail.com • 0369385187. Form này đang là demo frontend, có thể nối thật sang email, Google Sheet, Telegram, Zalo OA hoặc CRM.</p>
+              </div>
+              <form class="form" onsubmit="event.preventDefault(); alert('Đã ghi nhận thông tin demo. Có thể nối backend thật ở bước tiếp theo.');">
+                <input type="text" placeholder="Họ và tên" required>
+                <input type="text" placeholder="Số điện thoại / Email" required>
+                <select>
+                  <option>Khóa học cá nhân</option>
+                  <option>Đào tạo doanh nghiệp</option>
+                  <option>Cố vấn hình ảnh 1:1</option>
+                  <option>Hợp tác workshop / diễn giả</option>
+                </select>
+                <textarea rows="4" placeholder="Nhu cầu cụ thể của bạn"></textarea>
+                <button type="submit">Gửi yêu cầu tư vấn</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <div class="left">
+          <img src="assets-real/unnamed.png" alt="logo">
+          <div><b style="color:var(--deep)">Krystal EtiquettePro VietNam</b><br><span>Luxury etiquette • Professional image • Refined communication</span></div>
+        </div>
+        <div class="social"><a>f</a><a>in</a><a>▶</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="floating-cta"><a href="tel:0369385187" title="Call">☎</a><a href="mailto:kepvietnam2025@gmail.com" title="Email">✉</a><a href="#contact" title="Tư vấn">↑</a></div>
+
+  <script>
+    const glow=document.getElementById('glow');
+    window.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';
+      const x=(e.clientX/window.innerWidth-.5)*10, y=(e.clientY/window.innerHeight-.5)*10;
+      document.querySelectorAll('.badge').forEach((b,i)=>{b.style.transform=`translate(${x*(i+1)*.45}px, ${y*(i+1)*.45}px)`});
+      const card=document.querySelector('.hero-card'); if(card){card.style.transform=`rotateY(${-9+x*.28}deg) rotateX(${4-y*.18}deg) translateY(0)`}
+    });
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach((entry,index)=>{
+        if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('show'), index*60);observer.unobserve(entry.target)}
+      })
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
